@@ -7,23 +7,27 @@ if($method == 'POST'){
 	$requestBody = file_get_contents('php://input');
 	$json = json_decode($requestBody);
 
-	$text = $json->result->parameters->text;
+	$text = $json->result->parameters->location;
 
-	switch ($text) {
-		case 'hi':
-			$speech = "Hi, Nice to meet you";
+	switch ($location) {
+		case 'bella vista':
+			$speech = "Hola, aquí te envío un listado de opciones en Bella Vista https://www.gogetit.com.pa/bella-vista-bella-vista/apartamentos-en-venta-b686";
 			break;
 
-		case 'bye':
-			$speech = "Bye, good night";
+		case 'obarrio':
+			$speech = "Listo, estas propiedades en Obarrio te pueden interesar https://www.gogetit.com.pa/bienes-raices-panama/obarrio-area-metropolitana/apartamentos-en-venta-z616";
 			break;
 
-		case 'anything':
-			$speech = "Yes, you can type anything here.";
+		case 'san francisco':
+			$speech = "Tienes suerte, mira estas opciones en San Francisco que encontramos para ti https://www.gogetit.com.pa/bienes-raices-panama/san-francisco-panama/apartamentos-en-venta-z12";
+			break;
+			
+		case 'costa del este':
+			$speech = "Yai, mira los apartamentos que encontré en Costa del Este para ti https://www.gogetit.com.pa/bienes-raices-panama/costa-del-este-area-metropolitana/apartamentos-en-venta-z26";
 			break;
 		
 		default:
-			$speech = "Sorry, I didnt get that. Please ask me something else.";
+			$speech = "Lo siento. No encuentro la zona que estás buscando.";
 			break;
 	}
 
