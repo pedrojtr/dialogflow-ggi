@@ -7,9 +7,9 @@ if($method == 'POST'){
 	$requestBody = file_get_contents('php://input');
 	$json = json_decode($requestBody);
 
-	$location = $json->result->parameters->ggi_locations;
+	$ggi_locations = $json->result->parameters->ggi_locations;
 
-	switch ($location) {
+	switch ($ggi_locations) {
 		case 'bella vista':
 			$speech = "Hola, aquí te envío un listado de opciones en Bella Vista https://www.gogetit.com.pa/bella-vista-bella-vista/apartamentos-en-venta-b686";
 			break;
